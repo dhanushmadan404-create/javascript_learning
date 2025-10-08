@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+    
+    <input id="num1">
+    <input id="num2">
+    <h1 id="re">result</h1>
+    <button onclick="bob()">result</button>
+    <script>
+        var one=document.getElementById("num1")
+        var two=document.getElementById("num2")
+        var total=document.getElementById("re")
+        function bob(){
+        var box1=Number(one.value)
+        var box2=Number(two.value)
+        total.textContent=box1+box2
+        }
+    </script>
+    
+</body>
+</html>
