@@ -6,15 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="input">
-    <button onclick="change()">change text</button>
+    <input type="text" id="input" onkeyup="change()">
+    <!-- <button onclick="change()">change text</button> -->
     <h1 id="change"></h1>
+
     <script>
-        var context=document.getElementById("text")
+        var context=document.getElementById("input")
         var text=document.getElementById("change")
         function change(){
             text.textContent=context.value
         }
+    
     </script>
 </body>
 </html>
