@@ -22,35 +22,38 @@
 // var color= "red"
 // var color= "yellow"
 // var color= "green"
-// if(color== "red")
+// function color(c){
+// if(c== "red")
 // {
 //     console.log("stop")
 // }
-// else if(color== "yellow")
+// else if(c== "yellow")
 // {
 //     console.log("get ready")
 // }
-// else if(color== "green"){
+// else if(c== "green"){
 //     console.log("go")
 // }
 // else(
 //     console.log("invalid color")
 // )
+// }
+// color("red")
 
 
 // score
-// var score =50
-var score =60
-// var score =70
-if (score <50)
-{
-    console.log("You need to improve")
-}
-else if(score>=50 , score<70)
-{
-    console.log("good work")
-}
-else if (score>=70 , score<=100)
-{
-    console.log("excellent work")
-}
+// // var score =50
+// var score =60
+// // var score =70
+// if (score <50)
+// {
+//     console.log("You need to improve")
+// }
+// else if(score>=50 , score<70)
+// {
+//     console.log("good work")
+// }
+// else if (score>=70 , score<=100)
+// {
+//     console.log("excellent work")
+// }

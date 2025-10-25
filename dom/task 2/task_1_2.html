@@ -7,14 +7,14 @@
 </head>
 <body>
    
-    <button onclick="change()">change</button>
-    <h1 id="change"></h1>
+    <button style="background: none; " id="change" onclick="change()">change</button>
+    <h1 ></h1>
 
     <script>
         var text=document.getElementById("change")
         function change(){
             var context=document.createElement("h1")
-            context.textContent="hello"
+            context.innerHTML="hello"
             text.append(context)
         }
     
