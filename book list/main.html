@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>book list</title>
+    <style>.fit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    table{
+        border: 5px solid black;
+    }
+    </style>
+  </head>
+  <body>
+    <script>
+        var name=document.getElementById("name")
+        var age=document.getElementById("age")
+        var gender=document.getElementById("gender")
+        var course=document.getElementById("course")
+        var email=document.getElementById("e=mail")
+    
+        var name2=document.getElementById("name2")
+
+
+    </script>
+    <div class="fit">
+    <fieldset>
+        <legend>Student-Form</legend>
+      <form action="post">
+        <table>
+          <thead>
+            <tr>
+              <th>Name:</th>
+              <th>
+                <input
+                id="name"
+                  type="text"
+                  required
+                  name="name"
+                  placeholder="Enter your name"
+                />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Age:</td>
+              <td>
+                <input id=""
+                  type="number"
+                  required
+                  name="age"
+                  placeholder="Enter your age"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>
+                <input id="gender"
+                  type="radio"
+                  required
+                  name="gender"
+                  value="male/female"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Course</td>
+              <td>
+                <select name="Course" id="option">
+                  <option value="java"> JAVA</option>
+                  <option value="Javascript">Javascript</option>
+                  <option value="python">Python</option>
+                  <option value="HTML">HTML</option>
+                  <option value="CSS">CSS</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>E-mail</td>
+              <td>
+                <input id="e-mail" type="text" required name="e-mail" value="@gmail.com" />
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <td>
+              <th rowspan="2"><button id="save" onclick="">Save</button></th>
+            </td>
+          </tfoot>
+        </table>
+      </form>
+    </fieldset>
+    <br/><br/>
+    <table>
+        <form > 
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                    <th>Gender</th>
+                    <th>E-mail</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td id="name2"></td>
+                    <td id="age2"></td>
+                    <td id="course2"></td>
+                    <td id="gender"></td>
+                    <td id="e-mail"></td>
+                    <td id="action"><button onclick="">clear</button></td>
+                </tr>
+            </thead>
+        </form>
+    </table>
+    </div>
+  </body>
+</html>

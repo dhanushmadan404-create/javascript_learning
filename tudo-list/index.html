@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Todo list</title>
+</head>
+<style>
+
+
+
+
+    *{
+        color: red;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    div{
+        border: 2px solid aqua;
+        height: 500px;
+        overflow-y:scroll ;
+    }
+</style>
+<body>
+    <section>
+        <h1>Todo_list</h1>
+        <div>
+            <input type="text" name="Todo" id="get"><button onclick="add()">List it</button>
+            <ul id="list_container">
+                <!-- <li id="list"><button onclick="document.getElementById('list').remove()">Delete</button></li> -->
+            </ul>
+            
+        </div>
+    </section>
+    <script>
+        var ul=document.getElementById("list_container")
+        var input=document.getElementById("get")
+        function add(){
+            // let value=input.value 
+            var list=document.createElement("li")
+            list.innerHTML=input.value+"<button onclick='remove(event)' >Delete</button>"
+            ul.append(list)
+        }
+        function remove(e){
+           e.target.parentElement.remove()
+        }
+
+    </script>
+</body>
+</html>

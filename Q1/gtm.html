@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GTN</title>
+    <style>
+        *{
+            color: gold;
+            background-color: black;
+        }
+            
+        
+        .box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid white;
+           position: absolute;
+           bottom: 300px;
+           left: 600px;
+
+        }
+        .title{
+            font-size:80px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">GAME_MODE<br/>GUESS THE NUMBER</h1>
+    <div class="box">
+    <h1>Guess the Number</h1>
+    <input id="value" type="number" />
+    <button onclick="check()">Result</button>
+    <br/>
+    <h5 id="wr">You are right/wrong</h5>
+    <h5 id="score">Your score:10</h5>
+    <h5 id="pc_num">Computer_number</h5>
+    </div>
+
+
+
+    <script>
+        var num=document.getElementById("value")
+        var point=10
+        var result=document.getElementById("wr")
+        var score_result=document.getElementById("score")
+        var com_num=document.getElementById("pc_num")
+        function check(){
+            var random=Math.floor(Math.random()*10)+1
+            com_num.textContent="Random_number=="+random
+            console.log(random)
+            var value=num.value
+            if (random==value){
+                result.textContent="You are right"
+                alert("you are won..."+point)
+            }
+            else{
+                result.textContent="You are wrong"
+                point-=1
+                score_result.textContent="your_score=="+point
+                
+            }
+
+        }
+
+
+    </script>
+
+</body>
+</html>
