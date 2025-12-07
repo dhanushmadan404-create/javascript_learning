@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <style>
+        div{
+            width: 1300px;
+            height: calc(100%);
+            
+        }
+        table{
+            margin: auto;
+        }
+
+        th,tr,td{
+            border: 5px solid black;
+            width: 100px;
+        }
+        /* table{
+           display: flex;
+           justify-content: center;
+        } */
+
+    </style>
+</head>
+
+<body>
+    <div id="mark">
+        <table id="table">
+            <tr>
+                <th>Student</th>
+                <th>Mark</th>
+                <th>option</th>
+            </tr>
+        </table>
+        
+        <button id="data">Submit</button>
+        </div>
+
+    </div>
+
+    <script>
+         let name=["Ramya","sujithra","Vivek","Deepika"]
+    let mark=[80,67,78,95,100]
+
+        var submit=document.getElementById("data")
+        var table=document.getElementById("table")
+        
+            
+  submit.addEventListener("click", () => {
+    for (let i = 0; i < name.length; i++) {
+      
+     let row = table.insertRow(-1);
+
+    let cell1 = row.insertCell(0);
+    cell1.textContent = name[i];
+
+    let cell2 = row.insertCell(1);
+    cell2.textContent = mark[i];
+
+    let cell3 = row.insertCell(2);
+    let btn = document.createElement("button");
+    btn.textContent = "Remove";
+    btn.addEventListener("click", () => {
+      row.remove();
+    });
+    cell3.appendChild(btn);
+    }
+    });
+
+
+    </script>
+</body>
+</html>
