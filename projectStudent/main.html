@@ -48,10 +48,9 @@
         var submit=document.getElementById("data")
         var table=document.getElementById("table")
         
-            
+   var i=0;         
   submit.addEventListener("click", () => {
-    for (let i = 0; i < name.length; i++) {
-      
+    if (i<name.length){
      let row = table.insertRow(-1);
 
     let cell1 = row.insertCell(0);
@@ -67,6 +66,10 @@
       row.remove();
     });
     cell3.appendChild(btn);
+    i++;
+    }
+    else{
+    alert("No more data to add");
     }
     });
 
