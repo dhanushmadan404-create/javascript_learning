@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      div {
+        width: calc(100%);
+        text-align: center;
+      }
+      span{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Login form</h1>
+      <form>
+        <!-- input for email -->
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" required minlength="13" /><br/>
+        <span id="email_error"></span>
+        <br />
+
+        <!-- input for password -->
+        <label for="">Password</label>
+        <input
+          type="password"
+          name="password "
+          id="password"
+          required
+          minlength="6"
+        /><br/>
+        <span id="password_error"></span>
+        <br />
+
+        <!-- input for conformation password -->
+        <label for="">Conformation_Password</label>
+        <input
+          type="password"
+          name="password"
+          id="Conformation_password"
+          required
+        /><br/>
+        <span id="conformation_error"></span>
+        <br />
+
+        <!-- submit button -->
+        <button id="submit">Submit</button>
+      </form>
+    </div>
+    <script>
+      // got the important input
+      let email = document.getElementById("email");
+      let emailError = document.getElementById("email_error");
+
+      let password = document.getElementById("password");
+      let passwordError = document.getElementById("password_error");
+
+      let conformation_password = document.getElementById(
+        "Conformation_password"
+      );
+      let conformationError = document.getElementById("conformation_error");
+
+      let submit = document.getElementById("submit");
+      //   full input validation CD
+      submit.addEventListener("click", (event) => {
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        conformationError.textContent = "";
+        //   email
+        if (!email.checkValidity()) {
+          if (!email.value.includes("@gmail.com")) {
+            emailError.textContent = "Must have '@gmail.com'";
+          } 
+          else if (email.validity.valueMissing) {
+            emailError.textContent = "Email should be enter";
+          } else if (email.validity.tooShort) {
+            emailError.textContent = `must have${email.minlength}character `;
+          }
+          event.preventDefault();
+        }
+        // password
+        if (!password.checkValidity()) {
+          if (password.validity.valueMissing) {
+            passwordError.textContent = "password should be enter";
+          } else if (password.validity.tooShort) {
+            passwordError.textContent = `must have${password.minlength}character `;
+          }
+           event.preventDefault();
+        }
+        // conformation_password
+       
+          if (conformation_password.value==="" ){
+            conformationError.textContent = "conformation password should be enter";
+          } else if (password.value !== conformation_password.value) {
+            conformationError.textContent = "can't match password";
+          }
+        
+        });
+    
+
+      //  CI email validation
+      email.addEventListener("input", () => {
+          emailError.textContent = "";
+        if (!email.value.includes("@gmail.com")) {
+          emailError.textContent = "Must have '@gmail.com'";
+        }
+      });
+
+      // CI password validation
+      password.addEventListener("input", () => {
+        passwordError.textContent = "";
+        if (password.validity.tooShort) {
+          passwordError.textContent = `must have${password.minlength}character so you need ${password.value.length}`;
+        }
+      });
+
+      // CI conformation password validation
+      conformation_password.addEventListener("input", () => {
+        conformationError.textContent = "";
+        if (conformation_password.value !== password.value) {
+          conformationError.textContent = "can't match password";
+        }
+      });
+    </script>
+  </body>
+</html>
