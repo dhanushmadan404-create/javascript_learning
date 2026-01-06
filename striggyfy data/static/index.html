@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Data Viewer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+      }
+      h1 {
+        color: #0077cc;
+      }
+      table {
+        border-collapse: collapse;
+        width: 50%;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📋 Student Data</h1>
+
+    <!-- Create a form wih -->
+    <form id="myForm">
+      <!-- ID-->
+      <label for="id">ID: </label>
+      <input type="number" id="id" name="id" /><br />
+      <!-- name-->
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br />
+
+      <!-- age -->
+      <label for="age">Age: </label>
+      <input type="number" id="age" name="age" /><br />
+
+      <!-- course-->
+      <label for="course">Course: </label>
+      <input type="text" id="course" name="course" /><br />
+
+      <!-- submit button onclick make a post method call-->
+      <button type="submit">submit</button>
+      <button type="reset">reset</button>
+    </form>
+    <button onclick="loadData()">Load Students</button>
+
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Course</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      // 1. Select the form element
+      const form = document.getElementById("myForm");
+
+      // 2. Add a 'submit' event listener
+      form.addEventListener("submit", function (event) {
+        // Prevent the default form submission (stops the page from refreshing)
+        event.preventDefault();
+
+        // 3. Create a FormData object from the form
+        const formData = new FormData(event.target);
+
+        // 4. Convert the FormData entries into a plain JavaScript object
+        const formObject = Object.fromEntries(formData.entries());
+
+        // Now 'formObject' contains your data
+        alert(formObject.name);
+        // Example output: { name: 'John Doe', email: 'john@example.com' }
+
+        // You can then send this data to a server using the Fetch API or XMLHttpRequest
+        fetch("/students", {
+          method: "POST", // Use POST or PUT method
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formObject), // Pass the FormData object directly
+          // Do NOT set Content-Type header manually; the browser handles it
+        })
+          .then((response) => response.json()) // or response.text(), response.blob() etc.
+          .then((data) => {
+            console.log("Success:", data);
+            // Handle success (e.g., show a message, redirect)
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            // Handle errors (e.g., display an error message)
+          });
+      });
+
+      async function loadData() {
+        const response = await fetch("/students");
+        const data = await response.json();
+        const students = data.students;
+
+        const tbody = document.querySelector("#studentTable tbody");
+        tbody.innerHTML = ""; // clear old data
+
+        students.forEach((student) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.age}</td>
+                    <td>${student.course}</td>
+                `;
+          tbody.appendChild(row);
+        });
+      }   
+    </script>
+  </body>
+</html>
