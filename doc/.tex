@@ -1,0 +1,135 @@
+% ====================Java Script
+
+Array:
+1....others collects remaining values into an array.
+
+2/⏭️ Comma , skips elements.
+
+3/default value asign is [1,2,3=90]
+                               |->default
+
+4/Method 2: Array Constructor
+const arr = new Array(1, 2, 3);
+
+5/
+console.log(arr.length); // 4
+
+6/🔹 8. Modifying Array Elements
+let arr = [10, 20, 30];
+
+arr[1] = 50;
+
+console.log(arr); // [10, 50, 30]
+% array methods
+7/ push() → add at end
+8/unshift() → add at start
+9/arr.pop();-remove last element 
+10/arr.shift()=remove first element
+
+% 11/2️⃣ What is .map()?
+
+map() is an array method that:
+
+% 3️⃣ What is n => n * n?
+
+This is an arrow function.
+
+Expanded version:
+function (n) {
+  return n * n;
+}
+
+Meaning:
+
+n → current element of the array
+
+n * n → square of the number
+
+✔️ Goes through each element of an array
+✔️ Applies a function to each element
+✔️ Returns a new array
+
+% 12/.filter() is an array method in JavaScript that:
+
+✔️ Goes through each element of an array
+✔️ Checks a condition
+✔️ Keeps only the elements that return true
+✔️ Returns a new array
+
+let nums = [1, 2, 3, 4, 5];
+
+% let evenNums = nums.filter(n => n % 2 === 0);
+Output:
+js
+Copy code
+[2, 4]
+
+
+13/
+🔹 What is .reduce()?
+
+.reduce() is an array method that:
+
+✔️ Loops through the array
+✔️ Combines all values into ONE single value
+✔️ Can return number, string, object, array, boolean
+
+
+let nums = [1, 2, 3, 4];
+
+let sum = nums.reduce((acc, curr) => acc + curr, 0);
+
+console.log(sum); // 10
+🔹 Meaning of Each Part
+% acc (Accumulator)
+Stores the result so far
+
+% Starts with initialValue (here 0)
+
+% curr (Current Value)
+Current element from array
+
+% 0 (Initial Value)
+Starting value of accumulator
+
+VERY IMPORTANT (avoids bugs)
+
+% 14/
+find() – Find first matching element
+let nums = [10, 20, 30];
+let result = nums.find(n => n > 15);
+
+console.log(result); // 20
+
+% 15/
+includes() – Check if value exists
+let arr = [1, 2, 3];
+
+console.log(arr.includes(2)); // true
+console.log(arr.includes(5)); // false
+
+% 16/slice()
+let arr = [1, 2, 3, 4];
+let part = arr.slice(1, 3);
+
+console.log(part); // [2, 3]
+
+% 17/
+arr.splice(
+    value1 is where to delete index num
+    value 2 is how many num
+    value 3 is insert num
+    value 4  is same same ..
+)
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+% IN destructuring 
+const arr = [10, 20, 30, 40];
+
+const [a, b] = arr
+                |->destructuring asign value ;
+
+console.log(a); // 10
+console.log(b); // 20
+

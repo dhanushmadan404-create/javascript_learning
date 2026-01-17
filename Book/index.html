@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+
+        }
+        #option{
+            width: 100px;
+            height: 100px;
+            /* border-radius:50% ; */
+            border-radius:50% ;
+            background-color: aqua;
+        }
+        #book{
+            width: 400px;
+            height: 500px;
+          
+        
+        
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+   <!-- <div class="option"></div> -->
+    <img src=`${collection[0]}` alt="" id="book">
+
+    
+    <button id="option"></button>
+    </div>
+    <script>
+        let collection=["./assets/dinner.webp","assets/break_fast.jpg","assets/drinking.JPG"]
+        let collection_link=["https://chatgpt.com/","https://www.youtube.com/","https://www.instagram.com/"]
+        let img=document.getElementById("book")
+        let i=-1
+        let length=(collection.length)
+        console.log(length)
+        document.getElementById("option").addEventListener("click",()=>{
+            
+            if(i===(length)){
+                i=0
+            }
+            else{
+                img.style.backgroundImage = `url(${collection[i]})`;
+                i+=1;
+                img.addEventListener("click",()=>{
+                   window.location.href=`${collection_link[i]}`
+                    
+                })
+            }
+       
+
+        })
+
+
+    </script>
+</body>
+</html>
+
+<!-- levelup-1 -->
